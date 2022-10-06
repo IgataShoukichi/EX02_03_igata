@@ -13,5 +13,23 @@ int main() {
 	int i, j;			// 配列の要素番号（ループカウンタ）
 	char grade;			// 成績の評価
 
+	for (i = 0; i < DATA_NUM - 1; i++) {
+		for (j = i + 1; j < DATA_NUM; j++) {
+			if (point[i] < point[j]) {
+				int w = point[i];
+				point[i] = point[j];
+				point[j] = w;
+			}
+		}
+		if (point[i] < 60) {
+			break;
+		}
+		else {
+			if (point[i] >= 80)grade = 'A';
+			else if (point[i] >= 70)grade = 'B';
+			else grade = 'C';
+			cout << point[i] << "=" << grade << endl;
+		}
+	}
 	return 0;
 }
